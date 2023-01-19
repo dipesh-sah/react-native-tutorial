@@ -17,7 +17,7 @@ const menus = [
   {icon: require('../../assets/images/chat.png'), title: 'Chat'},
   {icon: require('../../assets/images/add-user.png'), title: 'Add Friend'},
 ];
-const Drawer = () => {
+const Drawer = ({navigation}) => {
   const [showMenu, setShowMenu] = useState(false);
   const [selectedValue, setSelectedValue] = useState(0);
   const moveToRight = useRef(new Animated.Value(0)).current;
@@ -122,6 +122,7 @@ const Drawer = () => {
                 useNativeDriver: true,
               }).start();
               setShowMenu(!showMenu);
+              navigation.openDrawer();
             }}>
             <Image
               source={require('../../assets/images/menus.png')}
